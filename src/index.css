@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @plugin "daisyui";
+@import "./tailwind-theme.css";
 
 /* Light Theme */
 @plugin "daisyui/theme" {
@@ -78,4 +79,10 @@
 
 body {
   font-family: "Poppins", sans-serif;
+}
+
+.wrap {
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
 }

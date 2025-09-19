@@ -1,3 +1,11 @@
+import { Header } from "./header";
+import { Hero } from "./hero";
+
 export const Homepage = () => {
-  return <div>Homepage</div>;
+  return (
+    <>
+      <Header />
+      <Hero />
+    </>
+  );
 };
