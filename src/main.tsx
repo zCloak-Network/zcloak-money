@@ -24,9 +24,12 @@ const queryClient = new QueryClient({
 });
 
 // 创建路由器
+const basepath = import.meta.env.VITE_APP_BASE || "";
+
 const router = createRouter({
   routeTree,
   history: createHashHistory(),
+  basepath,
 });
 
 // 注册路由器类型
