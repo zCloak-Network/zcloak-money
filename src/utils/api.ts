@@ -18,7 +18,7 @@ class ApiClient {
 
   constructor() {
     // 从环境变量获取 API 基础 URL，如果没有则使用默认值
-    this.baseUrl = import.meta.env.VITE_APP_HOST;
+    this.baseUrl = import.meta.env.VITE_APP_HOST || "";
 
     // 确保 baseUrl 不以斜杠结尾
     if (this.baseUrl.endsWith("/")) {
