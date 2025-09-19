@@ -10,9 +10,6 @@ export default defineConfig(({ mode }) => {
 
   return {
     base,
-    define: {
-      "import.meta.env.VITE_APP_BASE": JSON.stringify(base),
-    },
     resolve: {
       alias: {
         "@": "/src",
