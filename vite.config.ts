@@ -6,7 +6,7 @@ import svgr from "vite-plugin-svgr";
 
 // https://vite.dev/config/
 export default defineConfig(({ mode }) => {
-  const base = mode === "test" ? "/webpay/" : "/";
+  const base = mode === "test" ? "/zcloak-money/" : "/";
 
   return {
     base,
