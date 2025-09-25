@@ -4,10 +4,14 @@ import SaleButton from './saleButton';
 import TryButton from './tryButton';
 import ExtraLink from './extraLink';
 import GlobalStore from '@/stores';
+import TextType from '@/components/textType';
+import { useState } from 'react';
+import GradientText from '@/components/gradientText';
 
 export default observer(() => {
   const curClassName = formatClassName('home');
   const { isMobile } = GlobalStore;
+  const [showCursor, setShowCursor] = useState(true);
 
   return (
     <div className={clsx(
@@ -15,13 +19,30 @@ export default observer(() => {
       curClassName('banner'),
     )}>
       <div className={`max-w-7xl mx-auto relative z-20 pt-[118px] md:pt-[135px]`}>
-        <div className="leading-[120%] text-[40px] md:text-[64px] font-bold text-[#2E83FF]">
-          zCloak.Money
+        <div className="leading-[120%] text-[40px] md:text-[64px] font-bold">
+          <GradientText
+            colors={["#40ffaa", "#2E83FF", "#40ffaa", "#2E83FF", "#40ffaa"]}
+            animationSpeed={3}
+            showBorder={false}
+          >
+            zCloak.Money
+          </GradientText>
         </div>
-        <div className="leading-[120%] text-[40px] md:text-[64px] font-bold text-white">
-          The First Enterprise<br/>Passkey Wallet
+        <div className="leading-[120%] text-[40px] md:text-[64px] font-bold text-white max-w-[550px]">
+          <TextType 
+            text={["The First Enterprise Passkey Wallet"]}
+            typingSpeed={75}
+            initialDelay={200}
+            pauseDuration={1500}
+            showCursor={showCursor}
+            loop={false}
+            hideCursorWhileTyping
+            onSentenceComplete={() => setShowCursor(false)}
+            cursorCharacter="|"
+          />
         </div>
         <div className="leading-[120%] text-xl md:text-2xl text-white mt-[130px]">
+
           Sovereign-Grade Security. Built for Decision Makers.
         </div>
         <div className="flex align-center justify-between gap-4 mt-10 md:mt-16">

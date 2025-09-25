@@ -10,7 +10,7 @@ import pinIcon2 from '@@/images/home/section_4-7.svg';
 import pinIcon3 from '@@/images/home/section_4-8.svg';
 import pinIcon4 from '@@/images/home/section_4-9.svg';
 import { observer } from "mobx-react-lite";
-import SpotlightCard from "./spotlightCard";
+import SpotlightCard from "@/components/spotlightCard";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
 
 type LayerProps = {
