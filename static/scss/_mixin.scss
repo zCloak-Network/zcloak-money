@@ -1,0 +1,274 @@
+@import "./vars";
+
+/* BEM
+ --------------------------
+ */
+@mixin b($block) {
+  $B: #{$block} !global;
+
+  .#{$B} {
+    @content;
+  }
+}
+
+@mixin e($element) {
+  $E: $element !global;
+  $selector: &;
+  $currentSelector: '';
+
+  @each $unit in $element {
+    $currentSelector: #{$currentSelector + '.' + $B + $element-separator + $unit + ','};
+  }
+  @if hitAllSpecialNestRule($selector) {
+    @at-root {
+      #{$selector} {
+        #{$currentSelector} {
+          @content;
+        }
+      }
+    }
+  }
+
+  @else {
+    @at-root {
+      #{$currentSelector} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin m($modifier) {
+  $selector: &;
+  $currentSelector: '';
+
+  @each $unit in $modifier {
+    $currentSelector: #{$currentSelector + & + $modifier-separator + $unit + ','};
+  }
+
+  @if hitAllSpecialNestRule($selector) {
+    @at-root {
+      #{$selector} {
+        .#{$B + $element-separator + $E + $modifier-separator + $modifier} {
+          @content;
+        }
+      }
+    }
+  }
+
+  @else {
+    @at-root {
+      #{$currentSelector} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin configurable-m($modifier, $E-flag: false) {
+  $selector: &;
+  $interpolation: '';
+
+  @if $E-flag {
+    $interpolation: #{$element-separator}#{$E-flag};
+  }
+
+  @at-root {
+    #{$selector} {
+      .#{$B + $interpolation + $modifier-separator + $modifier} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin spec-selector($specSelector: '', $element: $E, $modifier: false, $block: $B) {
+  $modifierCombo: '';
+
+  @if $modifier {
+    $modifierCombo: #{$modifier-separator}#{$modifier};
+  }
+
+  @at-root {
+    #{&}#{$specSelector}.#{$block + $element-separator + $element + $modifierCombo} {
+      @content;
+    }
+  }
+}
+
+@mixin when($state) {
+  @at-root {
+    &.#{$state-prefix + $state} {
+      @content;
+    }
+  }
+}
+
+// @inlude pseudo(hover)等效于 &:hover
+@mixin pseudo($pseudo) {
+  @at-root #{&}#{':#{$pseudo}'} {
+    @content
+  }
+}
+
+@mixin meb($modifier: false, $element: $E, $block: $B) {
+  $selector: &;
+  $modifierCombo: '';
+  $eleCombo: '';
+
+  @if $modifier {
+    $modifierCombo: #{$modifier-separator}#{$modifier};
+  }
+
+  @if $element {
+    $eleCombo: #{$element-separator}#{$element};
+  }
+
+  @at-root {
+    #{$selector} {
+      .#{$namespace}-#{$block}#{$eleCombo}#{$modifierCombo} {
+        @content;
+      }
+    }
+  }
+}
+
+@mixin nextmeb($modifier: false, $element: $E, $block: $B) {
+  $selector: &;
+  $modifierCombo: '';
+
+  @if $modifier {
+    $modifierCombo: #{$modifier-separator}#{$modifier};
+  }
+
+  @at-root {
+    #{$selector}#{'+.#{$namespace}-#{$block}#{$element-separator}#{$element}#{$modifierCombo}'} {
+      @content;
+    }
+  }
+}
+
+// 单行文本超出...
+@mixin ellipse {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+// 多行文本超出...
+@mixin ellipseLine($line) {
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: $line;
+  -webkit-box-orient: vertical;
+}
+// 设置一个小圆点
+@mixin redCircle($size, $color: $error-color) {
+  width: $size;
+  height: $size;
+  border-radius: 50%;
+  background-color: $color;
+}
+
+// 伪类通用样式
+@mixin iconAfterStyle ($w, $h) {
+  content: ' ';
+  width: $w;
+  height: $h;
+  display: inline-block;
+}
+// 必填样式
+@mixin requireMust {
+  display: inline-block;
+  margin-right: 4px;
+  color: $error-color;
+  font-size: 14px;
+  font-family: SimSun, sans-serif;
+  line-height: 1;
+  content: '*';
+}
+
+// 设置按钮颜色样式，包括文字颜色、边框颜色、背景颜色
+@mixin button-color($color, $border: transparent, $background: null) {
+  color: $color;
+  border-color: $border;
+  @if $background {
+    background: $background;
+  }
+}
+
+// icon图标hover展示不同背景色
+@mixin iconHover($color: $text-white-hover, $w: 24) {
+  $selector: &;
+
+  @at-root {
+    #{$selector} {
+      width: $w + px;
+      height: $w + px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: $border-radius-base;
+      transition: all .3s;
+      cursor: pointer;
+
+      &:hover {
+        background: $color;
+      }
+    }
+  }
+}
+// flexed居中
+@mixin fixedCenter($w, $h) {
+  position: fixed;
+  width: $w + px;
+  height: $h + px;
+  top: 50%;
+  left: 50%;
+  margin-top: -($h/2) + px;
+  margin-left: -($w/2) + px;
+}
+// 设置cover的背景图
+@mixin coverBackground($url) {
+  background: url($url) no-repeat center center;
+  background-size: cover;
+}
+// 这置绝对定位元素
+@mixin absoluteEle($w, $h, $t: null, $r: null, $b: null, $l: null) {
+  position: absolute;
+  width: $w;
+  height: $h;
+
+  @if $t {
+    top: $t;
+  }
+  @if $r {
+    right: $r;
+  }
+  @if $b {
+    bottom: $b;
+  }
+  @if $l {
+    left: $l;
+  }
+}
+// 给一行文字前面加小圆圈
+@mixin circleLi($left: 12px, $color: #262626, $w: 4px, $top: 9px) {
+  $selector: &;
+
+  @at-root {
+    #{$selector} {
+      position: relative;
+      margin-left: $left;
+
+      &::before {
+        @include redCircle($w, $color);
+        position: absolute;
+        content: ' ';
+        top: $top;
+        left: calc(-1 * #{$left});
+      }
+    }
+  }
+}

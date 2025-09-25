@@ -1,0 +1,185 @@
+@import '../mixin';
+
+.home__banner {
+  background-color: #0C0D14;
+  &::after {
+    content: '';
+    @include absoluteEle(1365px, 847px, 0, 0);
+    @include coverBackground('@@/images/home/banner.jpg');
+  }
+  @media (max-width: 768px) {
+    &::after {
+      top: -7px;
+      right: -589px;
+    }
+
+    &::before {
+      content: '';
+      @include absoluteEle(1017px, 827px, 0, -178px);
+      background: linear-gradient(270deg, rgba(12, 10, 16, 0.00) 0%, #0C0A10 100%);
+    }
+  }
+}
+
+.home__section2 {
+  &::before {
+    content: '';
+    z-index: -1;
+    @include absoluteEle(100%, 100%, 0, 0);
+    background-image: url('@@/images/home/section_2-1.png'), url('@@/images/home/section_2-4.png');
+    background-repeat: repeat-x, repeat-x;
+    background-position: center 55px, bottom center;
+    background-size: auto, auto;
+    background-origin: border-box, border-box; // 关键属性
+  }
+  &::after {
+    content: '';
+    z-index: -1;
+    @include absoluteEle(100%, 100%, 0, 0);
+    background: linear-gradient(180deg, rgba(196, 224, 254, 0.00) 7.41%, rgba(196, 224, 254, 0.50) 55.44%, rgba(196, 224, 254, 0.00) 94.77%);
+  }
+}
+
+.home__section4 {
+  &--layer_1 {
+    .layer {
+      border: 1px solid rgb(149, 220, 255);
+      background: linear-gradient(255deg, rgba(71, 154, 255, 0.07) 5.95%, rgba(2, 18, 22, 0.00) 44.21%, rgba(136, 225, 255, 0.07) 89.75%);
+      backdrop-filter: blur(4.5px);
+    }
+  }
+  &--layer_2 {
+    .layer {
+      border: 1px solid rgb(0, 225, 255);
+      background: linear-gradient(255deg, rgba(0, 255, 153, 0.07) 5.95%, rgba(2, 18, 22, 0.00) 44.21%, rgba(136, 255, 190, 0.07) 89.75%);
+      backdrop-filter: blur(4.5px);
+    }
+  }
+  &--layer_3 {
+    .layer {
+      border: 1px solid rgb(0, 144, 255);
+      background: linear-gradient(255deg, rgba(0, 212, 255, 0.07) 5.95%, rgba(2, 18, 22, 0.00) 44.21%, rgba(136, 235, 255, 0.07) 89.75%);
+      backdrop-filter: blur(4.5px);
+    }
+  }
+  &--layer_4 {
+    .layer {
+      border: 1px solid rgb(242, 0, 255);
+      background: linear-gradient(255deg, rgba(255, 0, 242, 0.07) 5.95%, rgba(2, 18, 22, 0.00) 44.21%, rgba(239, 136, 255, 0.07) 89.75%);
+      backdrop-filter: blur(4.5px);
+    }
+  }
+
+  &--description {
+    @include circleLi(16px, #A0A1A8);
+  }
+  @media (min-width: 768px) {
+    &--main {
+      &::before {
+        content: '';
+        @include absoluteEle(346px, 590px, -108px, -24px);
+        border-radius: 590px;
+        opacity: 0.42;
+        background: linear-gradient(90deg, #64FFC9 0%, #3B76E4 71.42%);
+        filter: blur(100px);
+      }
+    }
+    &--layer_1 {
+      top: 40px;
+      left: 0;
+
+      .pin {
+        bottom: 72px;
+        right: -32px;
+        width: 89px;
+        height: 17px;
+      }
+    }
+    &--layer_2 {
+      top: 430px;
+      left: 0;
+      .pin {
+        top: 72px;
+        right: -32px;
+        width: 93px;
+        height: 17px;
+      }
+    }
+    &--layer_3 {
+      top: 140px;
+      right: 0;
+      .pin {
+        bottom: 72px;
+        left: -32px;
+        width: 132px;
+        height: 17px;
+      }
+    }
+    &--layer_4 {
+      top: 532px;
+      right: 0;
+      .pin {
+        top: 72px;
+        left: -32px;
+        width: 132px;
+        height: 17px;
+      }
+    }
+  }
+}
+
+.home__section6 {
+  &--block3 {
+    &::before {
+      content: '';
+      @include absoluteEle(198px, 100%, 0, null, null, 0);
+      transform: translateX(-70%);
+      background: #CCD8E6;
+      filter: blur(15px);
+    }
+    &::after {
+      content: '';
+      @include absoluteEle(132px, 100%, 0, 0);
+      transform: translateX(80%);
+      background: #CCD8E6;
+      filter: blur(15px);
+    }
+  }
+}
+
+.home__footer {
+  a {
+    transition: color .3s;
+    &:hover {
+      color: #fff;
+    }
+  }
+}
+
+.home__extraLink {
+  a {
+    transition: all .3s;
+    &:hover {
+      color: #fff;
+      transform: scale(1.1);
+    }
+  }
+}
+
+.home__animation {
+  animation-duration: 800ms;
+  animation-fill-mode: both;
+  animation-delay: 200ms;
+  animation-name: fadeIn;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 100%, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}

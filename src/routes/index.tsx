@@ -1,5 +1,17 @@
-import { createFileRoute } from "@tanstack/react-router";
+import React from 'react';
+const Home = React.lazy(() => import('@/pages/home'));
 
-export const Route = createFileRoute("/")({
-  component: () => <>homepage</>,
-});
+const routeConfig = () => {
+  return [
+    {
+      path: '',
+      element: (
+        <React.Suspense>
+          <Home />
+        </React.Suspense>
+      ),
+    }
+  ]
+}
+
+export default routeConfig;
