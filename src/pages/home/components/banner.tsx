@@ -28,7 +28,7 @@ export default observer(() => {
             zCloak.Money
           </GradientText>
         </div>
-        <div className="leading-[120%] text-[40px] md:text-[64px] font-bold text-white max-w-[550px]">
+        <div className="leading-[120%] text-[40px] md:text-[64px] font-bold text-white md:max-w-[550px] max-w-[350px] md:min-h-[153px] min-h-[96px]">
           <TextType 
             text={["The First Enterprise Passkey Wallet"]}
             typingSpeed={75}
@@ -41,8 +41,7 @@ export default observer(() => {
             cursorCharacter="|"
           />
         </div>
-        <div className="leading-[120%] text-xl md:text-2xl text-white mt-[130px]">
-
+        <div className="leading-[120%] text-xl md:text-2xl text-white md:mt-[40px] mt-[52px]">
           Sovereign-Grade Security. Built for Decision Makers.
         </div>
         <div className="flex align-center justify-between gap-4 mt-10 md:mt-16">

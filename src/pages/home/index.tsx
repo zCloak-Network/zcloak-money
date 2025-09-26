@@ -9,6 +9,7 @@ import Section6 from "./components/section6";
 import Section7 from "./components/section7";
 import Footer from "./components/footer";
 import React from "react";
+import Section8 from "./components/section8";
 
 export default () => {
   return (
@@ -21,6 +22,7 @@ export default () => {
       <Section4 />
       <Section5 />
       <Section6 />
+      <Section8 />
       <Section7 />
       <Footer />
     </React.Fragment>

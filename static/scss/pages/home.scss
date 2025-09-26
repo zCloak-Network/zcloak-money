@@ -9,7 +9,7 @@
   }
   @media (max-width: 768px) {
     &::after {
-      top: -7px;
+      top: -100px;
       right: -589px;
     }
 
@@ -41,38 +41,57 @@
 }
 
 .home__section4 {
+  .layer {
+    // background-color: rgba(28, 28, 30, 0.15);
+    // animation: layerAnimation 0.5s infinite;
+  }
   &--layer_1 {
     .layer {
       border: 1px solid rgb(149, 220, 255);
-      background: linear-gradient(255deg, rgba(71, 154, 255, 0.07) 5.95%, rgba(2, 18, 22, 0.00) 44.21%, rgba(136, 225, 255, 0.07) 89.75%);
-      backdrop-filter: blur(4.5px);
+      background-image: linear-gradient(255deg, rgba(71, 154, 255, 0.07) 5.95%, rgba(2, 18, 22, 0.00) 44.21%, rgba(136, 225, 255, 0.07) 89.75%);
     }
   }
   &--layer_2 {
     .layer {
       border: 1px solid rgb(0, 225, 255);
-      background: linear-gradient(255deg, rgba(0, 255, 153, 0.07) 5.95%, rgba(2, 18, 22, 0.00) 44.21%, rgba(136, 255, 190, 0.07) 89.75%);
-      backdrop-filter: blur(4.5px);
+      background-image: linear-gradient(255deg, rgba(0, 255, 153, 0.07) 5.95%, rgba(2, 18, 22, 0.00) 44.21%, rgba(136, 255, 190, 0.07) 89.75%);
     }
   }
   &--layer_3 {
     .layer {
       border: 1px solid rgb(0, 144, 255);
-      background: linear-gradient(255deg, rgba(0, 212, 255, 0.07) 5.95%, rgba(2, 18, 22, 0.00) 44.21%, rgba(136, 235, 255, 0.07) 89.75%);
-      backdrop-filter: blur(4.5px);
+      background-image: linear-gradient(255deg, rgba(0, 212, 255, 0.07) 5.95%, rgba(2, 18, 22, 0.00) 44.21%, rgba(136, 235, 255, 0.07) 89.75%);
     }
   }
   &--layer_4 {
     .layer {
       border: 1px solid rgb(242, 0, 255);
-      background: linear-gradient(255deg, rgba(255, 0, 242, 0.07) 5.95%, rgba(2, 18, 22, 0.00) 44.21%, rgba(239, 136, 255, 0.07) 89.75%);
-      backdrop-filter: blur(4.5px);
+      background-image: linear-gradient(255deg, rgba(255, 0, 242, 0.07) 5.95%, rgba(2, 18, 22, 0.00) 44.21%, rgba(239, 136, 255, 0.07) 89.75%);
     }
   }
 
   &--description {
     @include circleLi(16px, #A0A1A8);
   }
+  @media (min-width: 1024px) {
+    &--layer_1 {
+      top: 40px;
+      left: 0;
+    }
+    &--layer_2 {
+      top: 430px;
+      left: 0;
+    }
+    &--layer_3 {
+      top: 140px;
+      right: 0;
+    }
+    &--layer_4 {
+      top: 532px;
+      right: 0;
+    }
+  }
+
   @media (min-width: 768px) {
     &--main {
       &::before {
@@ -85,45 +104,20 @@
       }
     }
     &--layer_1 {
-      top: 40px;
+      top: 20px;
       left: 0;
-
-      .pin {
-        bottom: 72px;
-        right: -32px;
-        width: 89px;
-        height: 17px;
-      }
     }
     &--layer_2 {
-      top: 430px;
+      top: 410px;
       left: 0;
-      .pin {
-        top: 72px;
-        right: -32px;
-        width: 93px;
-        height: 17px;
-      }
     }
     &--layer_3 {
-      top: 140px;
+      top: 120px;
       right: 0;
-      .pin {
-        bottom: 72px;
-        left: -32px;
-        width: 132px;
-        height: 17px;
-      }
     }
     &--layer_4 {
-      top: 532px;
+      top: 480px;
       right: 0;
-      .pin {
-        top: 72px;
-        left: -32px;
-        width: 132px;
-        height: 17px;
-      }
     }
   }
 }
@@ -171,15 +165,14 @@
   animation-fill-mode: both;
   animation-delay: 200ms;
   animation-name: fadeIn;
+  transform: translate3d(0, 100%, 0);
 }
 
 @keyframes fadeIn {
   from {
-    opacity: 0;
     transform: translate3d(0, 100%, 0);
   }
   to {
-    opacity: 1;
     transform: translate3d(0, 0, 0);
   }
 }

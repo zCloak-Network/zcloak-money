@@ -28,21 +28,23 @@ const Layer = (
     descriptions,
     icon,
     id,
-    pinIcon,
     spotlightColor
   }: LayerProps) => {
   const curClassName = formatClassName('home');
   const [ref, isVisible] = useScrollAnimation();
+
   return (
     <div ref={ref} className={clsx(
-      curClassName(['section4', `layer_${id}`], 'md:absolute'),
+      curClassName(['section4', `layer_${id}`]),
+      'md:absolute md:z-30',
       isVisible ? curClassName('animation') : 'opacity-0'
     )}>
       <SpotlightCard
         className={clsx(
-          "px-5 pt-6 pb-[30px] rounded-[20px] flex flex-col gap-[28px]",
-          "xl:max-w-[386px] lg:max-w-[356px] md:max-w-[316px] relative z-30",
+          "px-5 pt-6 pb-[30px] rounded-[20px] flex flex-col gap-[28px] relative z-30",
+          "xl:max-w-[386px] lg:max-w-[356px] md:max-w-[316px]",
           curClassName('section4', 'layer'),
+          'backdrop-blur-[4.5px]'
         )}
         spotlightColor={spotlightColor}
       >
@@ -56,7 +58,7 @@ const Layer = (
           ))}
         </div>
       </SpotlightCard>
-      <img src={pinIcon} className="md:block pin hidden absolute z-20" alt="" />
+      {/* <img src={pinIcon} className="md:block pin hidden absolute z-20" alt="" /> */}
     </div>
   )
 }
@@ -113,6 +115,7 @@ export default observer(() => {
   return (
     <div ref={ref} className={clsx(
       "px-4 py-[50px] bg-[#1C1C1E]",
+      curClassName('section4'),
       isVisible ? curClassName('animation') : 'opacity-0'
     )}>
       <div className="flex flex-col justify-center items-center md:gap-[45px] gap-[42px]">
@@ -122,6 +125,26 @@ export default observer(() => {
       <div className="relative md:max-w-7xl mx-auto flex flex-col justify-center items-center gap-[28px] mt-[45px] md:h-[1043px]">
         <div className={clsx("md:absolute xl:w-[426px] lg:w-[396px] md:w-[356px] w-[216px] md:top-[169px]", curClassName(['section4', 'main']))}>
           <img src={MainIcon} alt="" className="relative z-10" />
+          <img src={pinIcon1} className={clsx(
+            "md:block hidden absolute z-20 h-[17px] xl:top-[128px] xl:left-[-11px]",
+            "lg:top-[128px] lg:left-[-12px]",
+            "md:top-[118px] md:left-[-18px]"
+          )} alt="" />
+          <img src={pinIcon2} className={clsx(
+            "md:block hidden absolute z-20 h-[17px] xl:top-[318px] xl:left-[-15px]",
+            "lg:top-[300px] lg:left-[-15px]",
+            "md:top-[270px] md:left-[-24px]"
+          )} alt="" />
+          <img src={pinIcon3} className={clsx(
+            "md:block hidden absolute z-20 h-[17px] right-1/2 xl:translate-x-[calc(100%+126px)] xl:top-[210px]",
+            "lg:translate-x-[calc(100%+118px)] lg:top-[200px]",
+            "md:translate-x-[calc(100%+104px)] md:top-[170px]"
+          )} alt="" />
+          <img src={pinIcon4} className={clsx(
+            "md:block hidden absolute z-20 h-[17px] right-1/2 xl:translate-x-[calc(100%+126px)] xl:top-[380px]",
+            "lg:translate-x-[calc(100%+118px)] lg:top-[370px]",
+            "md:translate-x-[calc(100%+104px)] md:top-[330px]"
+          )} alt="" />
         </div>
         <div className="flex flex-col gap-6">
           {layers.map((layer, index) => (

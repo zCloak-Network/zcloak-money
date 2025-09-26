@@ -1,13 +1,15 @@
 import { clsx, formatClassName } from "@/utils"
-import sectionImg1 from '@@/images/home/section_6-1.png';
 import sectionImg2 from '@@/images/home/section_6-2.png';
 import sectionImg3 from '@@/images/home/section_6-3.png';
 import sectionImg32 from '@@/images/home/section_6-3-2.png';
-import sectionImg4 from '@@/images/home/section_6-4.png';
-import sectionImg5 from '@@/images/home/section_6-5.png';
 import { observer } from "mobx-react-lite";
 import GlobalStore from "@/stores";
 import { useScrollAnimation } from "@/hooks/useScrollAnimation";
+import Lottie from "lottie-react";
+import section_6_1_data from '../animation/section_6-1.json';
+import section_6_4_data from '../animation/section_6-4.json';
+import section_6_5_data from '../animation/section_6-5.json';
+
 
 const curClassName = formatClassName('home');
 
@@ -35,10 +37,10 @@ const Card1 = () => {
         </div>
         <div className={clsx(
           "overflow-hidden flex items-center justify-center",
-          "md:h-[312px] h-[233px]"
+          "bg-[url('@@/images/home/section_6-1.png')] bg-cover bg-center"
         )}
         >
-          <img src={sectionImg1} className="max-w-full max-h-full object-contain" alt="" />
+          <Lottie animationData={section_6_1_data} loop className="max-w-full self-end max-h-full object-contain" />
         </div>
       </div>
 
@@ -101,8 +103,8 @@ const Card3 = () => {
       )}
     >
       <div className={clsx('md:flex-1 flex flex-col justify-between self-stretch rounded-[20px] bg-[#F5F5F7] overflow-hidden')}>
-        <div className="overflow-hidden flex items-center justify-center">
-          <img src={sectionImg4} alt="" className="object-contain h-[330px] max-w-none" />
+        <div className="overflow-hidden flex items-center justify-center bg-[url('@@/images/home/section_6-4.png')] bg-cover bg-center">
+          <Lottie animationData={section_6_4_data} loop className="object-contain h-[330px] max-w-none w-full" />
         </div>
         <div className="flex flex-col md:w-[80%] gap-2 pb-[50px] px-5 md:px-[50px] md:mt-8 -mt-12">
           <div className="text-2xl md:text-[32px] font-medium text-[#101010]">
@@ -115,9 +117,8 @@ const Card3 = () => {
       </div>
 
       <div className={clsx('md:flex-1 flex flex-col justify-between self-stretch rounded-[20px] bg-[#F5F5F7] overflow-hidden')}>
-        <div className="overflow-hidden flex items-center justify-center">
-          <img src={sectionImg5} alt="" className="object-contain h-[330px] max-w-none" />
-        </div>
+        <div className="overflow-hidden flex items-center justify-center bg-[url('@@/images/home/section_6-5.png')] bg-cover bg-center">
+          <Lottie animationData={section_6_5_data} loop className="object-contain h-[330px] max-w-none" />        </div>
         <div className="flex flex-col md:w-[80%] gap-2 pb-[50px] px-5 md:px-[50px] md:mt-8 mt-2">
           <div className="text-2xl md:text-[32px] font-medium text-[#101010]">
             Enterprise Privacy
@@ -138,7 +139,7 @@ export default observer(() => {
   return (
     <div ref={ref} className={clsx(
       'flex flex-col md:max-w-7xl mx-auto items-center',
-      'md:px-6 md:py-[105px] md:pb-[210px] px-4 py-[50px]',
+      'md:px-6 md:py-[105px] px-4 py-[50px]',
       'md:gap-[64px] gap-[42px]',
       isVisible ? curClassName('animation') : 'opacity-0'
     )}>

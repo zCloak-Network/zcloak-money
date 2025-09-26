@@ -21,13 +21,15 @@ export default () => {
         'gap-8 md:gap-[42px]',
         'md:max-w-7xl',
         )}
-      >
-        <img src={toolIcon} className="w-[91px] md:w-[178px]" alt="" />
-        <div className={clsx('md:text-2xl text-base text-center px-6 md:max-w-[888px]')}>
-          While most multisig wallets were never designed for enterprise needs. They fail in critical areas including 
-          <span className="text-[#2488FA]">frontend risks, rigid governance, fragmented evidence, blurry roles & responsibilities, reactive risk control, approval gaps, high cost & complexity and privacy leakage.</span>
+        >
+          <img src={toolIcon} className="w-[91px] md:w-[178px]" alt="" />
+          <div className={clsx('md:text-2xl text-base md:text-left text-center font-semibold px-6 md:max-w-[888px]')}>
+            Most multisig wallets are consumer tools pretending to be enterprise infrastructure.&nbsp;
+            <span className="text-[#2488FA]">
+              They fail with hackable frontends, rigid governance, and fragmented operations that create managament nightmares.
+            </span>
+          </div>
         </div>
-      </div>
       <img
         src={arrowIcon}
         width={34}

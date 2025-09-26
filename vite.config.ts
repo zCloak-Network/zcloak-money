@@ -3,12 +3,14 @@ import react from '@vitejs/plugin-react';
 import tsconfigPaths from 'vite-tsconfig-paths';
 import path from 'path';
 import svgr from 'vite-plugin-svgr';
+import { lottie } from 'vite-plugin-lottie';
 import tailwindcss from '@tailwindcss/vite';
 
 export default defineConfig({
   plugins: [
     react(),
     // tailwindcss(),
+    lottie(),
     svgr(),
     tsconfigPaths()
   ],
@@ -56,5 +58,5 @@ export default defineConfig({
   },
   // 静态资源处理
   publicDir: 'public',
-  assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg', '**/*.webp'],
+  assetsInclude: ['**/*.png', '**/*.jpg', '**/*.jpeg', '**/*.gif', '**/*.svg', '**/*.webp', '**/*.lottie'],
 });
