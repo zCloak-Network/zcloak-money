@@ -29,19 +29,19 @@ const SectionCard = ({ title, icon, isReverse }: SectionCardProps) => {
 
 const cards: Omit<SectionCardProps, 'isReverse'>[] = [
   {
-    title: 'Cross-Border Enterprises & Trading Companies',
+    title: 'Cross-Border & E-Commerce companies',
     icon: cardIcon1,
   },
   {
-    title: 'Funds & Payroll Platforms',
+    title: 'Digital Asset and Payroll Platform',
     icon: cardIcon2,
   },
   {
-    title: 'Social & Gaming Platforms',
+    title: 'Banks & Funds',
     icon: cardIcon3,
   },
   {
-    title: 'Web3 Companies & DAOs',
+    title: 'DeFi Protocol and Web3 DAOs',
     icon: cardIcon4,
   }
 ]

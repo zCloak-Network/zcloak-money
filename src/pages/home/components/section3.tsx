@@ -70,7 +70,7 @@ export default () => {
           }
         />
         <Card
-          title="Architecurally immune to most hacker attacks."
+          title="Architecurally immune to most hacker attacks"
           description="By eliminating attack surfaces entirely—no seed phrases to steal, no frontend to hijack, no servers to exploit—we've made traditional attack vectors mathematically impossible."
           icon={
             <div className="bg-[url('@@/images/home/section_3-4.png')] bg-cover bg-center">

@@ -138,8 +138,8 @@ export default observer(() => {
         Our Investors
       </div>
       <div className="flex flex-col w-full md:gap-[36px] gap-6">
-        <LogoLoop logos={logoLine1} fadeOut speed={isMobile ? 60 : 120} logoHeight={isMobile ? 40 : 76} gap={isMobile ? 16 : 32} />
-        <LogoLoop logos={logoLine2} fadeOut direction='right' speed={isMobile ? 60 : 120} logoHeight={isMobile ? 40 : 76} gap={isMobile ? 16 : 32} />
+        <LogoLoop logos={logoLine1} pauseOnHover={false} fadeOut speed={isMobile ? 60 : 120} logoHeight={isMobile ? 40 : 76} gap={isMobile ? 16 : 32} />
+        <LogoLoop logos={logoLine2} pauseOnHover={false} fadeOut direction='right' speed={isMobile ? 60 : 120} logoHeight={isMobile ? 40 : 76} gap={isMobile ? 16 : 32} />
       </div>
     </div>
   )
