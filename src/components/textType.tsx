@@ -104,7 +104,6 @@ const TextType = ({
 
     const currentText = textArray[currentTextIndex];
     const processedText = reverseMode ? currentText.split('').reverse().join('') : currentText;
-    console.info(processedText);
     const executeTypingAnimation = () => {
       if (isDeleting) {
         if (displayedText === '') {

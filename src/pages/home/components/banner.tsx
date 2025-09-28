@@ -1,23 +1,30 @@
-import { clsx, formatClassName, preloadVideos } from '@/utils';
+import { clsx, formatClassName } from '@/utils';
 import { observer } from 'mobx-react-lite';
 import SaleButton from './saleButton';
 import TryButton from './tryButton';
 import ExtraLink from './extraLink';
 import GlobalStore from '@/stores';
 import TextType from '@/components/textType';
-import { useEffect, useState } from 'react';
+import { useRef, useState } from 'react';
 import GradientText from '@/components/gradientText';
+import bannerPreview from '@@/images/home/banner.webp';
 
-const bannerVideo = 'https://d3c47asw5uot17.cloudfront.net/zcloakmoney.mp4';
-
+const bannerVideo = "https://d3c47asw5uot17.cloudfront.net/zcloakmoney.mp4";
 export default observer(() => {
   const curClassName = formatClassName('home');
   const { isMobile } = GlobalStore;
   const [showCursor, setShowCursor] = useState(true);
+  // const [videoLoaded, setVideoLoaded] = useState(true);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  useEffect(() => {
-    preloadVideos([bannerVideo]);
-  }, []);
+  // useEffect(() => {
+  //   if (videoRef.current) {
+  //     setVideoLoaded(false);
+  //     videoRef.current.addEventListener('canplaythrough', () => {
+  //       setVideoLoaded(true);
+  //     });
+  //   }
+  // }, []);
 
   return (
     <div className={clsx(
@@ -56,8 +63,15 @@ export default observer(() => {
         </div>
         {!isMobile && <ExtraLink className="flex-shrink-0 text-white absolute top-[640px] right-0" />}  
       </div>
-      <video 
-        src={bannerVideo} 
+      {/* {
+        !videoLoaded &&(
+          <div className={curClassName(['banner', 'video-poster'])}></div>
+        )
+      } */}
+      <video
+        ref={videoRef}
+        poster={bannerPreview}
+        src={bannerVideo}
         autoPlay 
         loop 
         muted 
@@ -65,8 +79,8 @@ export default observer(() => {
         controls={false} 
         className={curClassName(['banner', 'video'], 'object-cover')} 
       />
-      {/* <div className="absolute w-[656px] h-full top-0 md:right-[829px] right-[50%] bg-[linear-gradient(270deg,rgba(12,10,16,0.00)_0%,#0C0A10_60.99%)] z-10"></div> */}
-      {/* <div className="absolute w-[100vw] h-[183px] left-0 bottom-0 bg-[linear-gradient(180deg,rgba(12,10,16,0.00)_3.8%,#0C0A10_60.16%)] z-[11px]"></div> */}
+      {/* {!videoLoaded && <div className="absolute w-[656px] h-full top-0 md:right-[829px] right-[50%] bg-[linear-gradient(270deg,rgba(12,10,16,0.00)_0%,#0C0A10_60.99%)] z-10"></div>}
+      {!videoLoaded && <div className="absolute w-[100vw] h-[183px] left-0 bottom-0 bg-[linear-gradient(180deg,rgba(12,10,16,0.00)_3.8%,#0C0A10_60.16%)] z-[11px]"></div>} */}
     </div>
   )
 })

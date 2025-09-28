@@ -10,6 +10,10 @@
   .home__banner--video {
     @include absoluteEle(1365px, 847px, 0, 0);
   }
+  .home__banner--video-poster {
+    @include absoluteEle(1365px, 847px, -5px, -47px);
+    @include coverBackground('@@/images/home/banner.jpg');
+  }
   @media (max-width: 768px) {
     // &::after {
     //   top: -100px;
@@ -18,6 +22,11 @@
     .home__banner--video {
       top: -124px;
       left: 0;
+    }
+
+    .home__banner--video-poster {
+      top: -123px;
+      right: -542px;
     }
 
     // &::before {
