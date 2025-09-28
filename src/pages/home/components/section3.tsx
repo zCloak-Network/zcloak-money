@@ -37,13 +37,13 @@ export default () => {
       )}
     >
       <div className={clsx("flex flex-col gap-6 items-center justify-center text-center")}>
-        <p className="text-[#0098FD] text-xl font-medium">OUR SOLUTION</p>
-        <p className="md:text-[32px] text-2xl md:text-[32px] font-medium text-[#041527] leading-[125%] max-w-[880px]">
+        <div className="text-[#0098FD] text-xl font-medium">OUR SOLUTION</div>
+        <div className="md:text-[32px] text-2xl md:text-[32px] font-medium text-[#041527] leading-[125%] max-w-[880px]">
           zCloak.Money was built from first principles for enterprises. 
           <p className="md:text-2xl text-base font-normal text-[rgba(4,21,39,0.80)] mt-2">
             We unified governance, compliance, risk control, and privacy into one unhackable, fully on-chain architecture—transforming multisig from cost center into value driver.
           </p>
-        </p>
+        </div>
       </div>
       <div className="pt-[60px] md:pt-[98px] flex flex-col gap-[36px] md:gap-[52px]">
         <div className={clsx(

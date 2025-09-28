@@ -24,3 +24,24 @@ export const formatClassName = (path?: string) => {
 export const clsx = (...args: string[]) => {
   return args.join(' ');
 };
+
+/**
+ * 预加载视频
+ * @param urls URL数组
+ * @returns Promise
+ */
+export const preloadVideos = (urls: string[]): Promise<void[]> => {
+  const promises = urls.map(url => {
+    return new Promise<void>((resolve, reject) => {
+      const video = document.createElement('video');
+      video.src = url;
+      video.preload = 'auto';
+      video.muted = true;
+      video.controls = false;
+      video.autoplay = false;
+      video.oncanplaythrough = () => resolve();
+      video.onerror = () => reject(new Error(`Failed to load video: ${url}`));
+    });
+  });
+  return Promise.all(promises);
+};

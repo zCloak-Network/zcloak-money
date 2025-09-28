@@ -1,21 +1,27 @@
-import { clsx, formatClassName } from '@/utils';
+import { clsx, formatClassName, preloadVideos } from '@/utils';
 import { observer } from 'mobx-react-lite';
 import SaleButton from './saleButton';
 import TryButton from './tryButton';
 import ExtraLink from './extraLink';
 import GlobalStore from '@/stores';
 import TextType from '@/components/textType';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import GradientText from '@/components/gradientText';
+
+const bannerVideo = 'https://d3c47asw5uot17.cloudfront.net/zcloakmoney.mp4';
 
 export default observer(() => {
   const curClassName = formatClassName('home');
   const { isMobile } = GlobalStore;
   const [showCursor, setShowCursor] = useState(true);
 
+  useEffect(() => {
+    preloadVideos([bannerVideo]);
+  }, []);
+
   return (
     <div className={clsx(
-      "px-4 md:pb-[183px] pb-[132px] relative overflow-hidden bg-[#0C0A10]",
+      "px-4 md:pb-[290px] pb-[170px] relative overflow-hidden bg-[#0C0A10]",
       curClassName('banner'),
     )}>
       <div className={`max-w-7xl mx-auto relative z-20 pt-[118px] md:pt-[135px]`}>
@@ -52,8 +58,17 @@ export default observer(() => {
           {!isMobile && <ExtraLink className="flex-shrink-0 text-white" />}  
         </div>
       </div>
-      <div className="absolute w-[656px] h-full top-0 md:right-[829px] right-[50%] bg-[linear-gradient(270deg,rgba(12,10,16,0.00)_0%,#0C0A10_60.99%)] z-10"></div>
-      <div className="absolute w-[100vw] h-[183px] left-0 bottom-0 bg-[linear-gradient(180deg,rgba(12,10,16,0.00)_3.8%,#0C0A10_60.16%)] z-[11px]"></div>
+      <video 
+        src={bannerVideo} 
+        autoPlay 
+        loop 
+        muted 
+        playsInline
+        controls={false} 
+        className={curClassName(['banner', 'video'], 'object-cover')} 
+      />
+      {/* <div className="absolute w-[656px] h-full top-0 md:right-[829px] right-[50%] bg-[linear-gradient(270deg,rgba(12,10,16,0.00)_0%,#0C0A10_60.99%)] z-10"></div> */}
+      {/* <div className="absolute w-[100vw] h-[183px] left-0 bottom-0 bg-[linear-gradient(180deg,rgba(12,10,16,0.00)_3.8%,#0C0A10_60.16%)] z-[11px]"></div> */}
     </div>
   )
 })

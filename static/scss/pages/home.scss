@@ -2,22 +2,29 @@
 
 .home__banner {
   background-color: #0C0D14;
-  &::after {
-    content: '';
+  // &::after {
+  //   content: '';
+  //   @include absoluteEle(1365px, 847px, 0, 0);
+  //   @include coverBackground('@@/images/home/banner.jpg');
+  // }
+  .home__banner--video {
     @include absoluteEle(1365px, 847px, 0, 0);
-    @include coverBackground('@@/images/home/banner.jpg');
   }
   @media (max-width: 768px) {
-    &::after {
-      top: -100px;
-      right: -589px;
+    // &::after {
+    //   top: -100px;
+    //   right: -589px;
+    // }
+    .home__banner--video {
+      top: -124px;
+      left: 0;
     }
 
-    &::before {
-      content: '';
-      @include absoluteEle(1017px, 827px, 0, -178px);
-      background: linear-gradient(270deg, rgba(12, 10, 16, 0.00) 0%, #0C0A10 100%);
-    }
+    // &::before {
+    //   content: '';
+    //   @include absoluteEle(1017px, 827px, 0, -178px);
+    //   background: linear-gradient(270deg, rgba(12, 10, 16, 0.00) 0%, #0C0A10 100%);
+    // }
   }
 }
 
@@ -41,10 +48,6 @@
 }
 
 .home__section4 {
-  .layer {
-    // background-color: rgba(28, 28, 30, 0.15);
-    // animation: layerAnimation 0.5s infinite;
-  }
   &--layer_1 {
     .layer {
       border: 1px solid rgb(149, 220, 255);
