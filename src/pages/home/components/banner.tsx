@@ -50,13 +50,11 @@ export default observer(() => {
         <div className="leading-[120%] text-xl md:text-2xl text-white md:mt-[40px] mt-[52px]">
           Sovereign-Grade Security. Built for Decision Makers.
         </div>
-        <div className="flex align-center justify-between gap-4 mt-10 md:mt-16">
-          <div className="flex md:flex-row flex-col gap-4 flex-1">
-            <TryButton />
-            <SaleButton />
-          </div>
-          {!isMobile && <ExtraLink className="flex-shrink-0 text-white" />}  
+        <div className="flex md:flex-row flex-col gap-4  mt-10 md:mt-16">
+          <TryButton />
+          <SaleButton />
         </div>
+        {!isMobile && <ExtraLink className="flex-shrink-0 text-white absolute top-[640px] right-0" />}  
       </div>
       <video 
         src={bannerVideo} 
