@@ -24,25 +24,24 @@ export default observer(() => {
     )}
     >
       <Title />
-      <div ref={ref} className={clsx('w-full', isVisible ? curClassName('animation') : 'opacity-0')}>
-        <div className={clsx(
-          'bg-white relative',
-          'md:max-w-7xl max-w-full w-full',
-          'md:rounded-t-[50px]',
-          'md:rounded-[20px]',
-          'md:px-[50px] md:py-[45px]',
-          'bg-[linear-gradient(180deg,rgba(243,249,255,0.00)_0%,#C4E0FD_100%)]',
-          isMobile ? 'h-[395px] w-full' : '',
-        )}>
-          <img
-            src={mainImage}
-            alt=""
-            className={clsx(
-              "md:mt-[-75px] md:relative md:w-auto md:h-auto md:w-full md:max-w-full md:top-0 md:left-0",
-              "absolute top-4 left-6 w-[604px] max-w-[604px] h-[338px]",
-            )}
-          />
-        </div>
+      <div ref={ref} className={clsx(
+        'bg-white relative',
+        'md:max-w-7xl max-w-full w-full',
+        'md:rounded-t-[50px]',
+        'md:rounded-[20px]',
+        'md:px-[50px] md:py-[45px]',
+        'bg-[linear-gradient(180deg,rgba(243,249,255,0.00)_0%,#C4E0FD_100%)]',
+        isMobile ? 'h-[395px] w-full' : '',
+        isVisible ? curClassName('animation') : 'opacity-0'
+      )}>
+        <img
+          src={mainImage}
+          alt=""
+          className={clsx(
+            "md:mt-[-75px] md:relative md:w-auto md:h-auto md:w-full md:max-w-full md:top-0 md:left-0",
+            "absolute top-4 left-6 w-[604px] max-w-[604px] h-[338px]",
+          )}
+        />
       </div>
     </div>
   )
