@@ -56,7 +56,7 @@ export default () => {
         'md:px-6 md:pt-[92px] md:pb-[160px] md:max-w-7xl mx-auto',
         'flex flex-col gap-[42px] md:gap-[62px]'
       )}>
-        <div className="text-black font-medium md:text-[40px] text-2xl text-center">Who Do We Servce?</div>
+        <div className="text-black font-medium md:text-[40px] text-2xl text-center">Whom Do We Serve?</div>
         <div
           className={clsx(
             'md:flex md:flex-row gap-5 md:items-center ',
