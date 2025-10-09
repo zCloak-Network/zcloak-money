@@ -55,7 +55,7 @@ export default observer(() => {
           />
         </div>
         <div className="leading-[120%] text-xl md:text-2xl text-white md:mt-[40px] mt-[52px]">
-          Sovereign-Grade Security. Built for Decision Makers.
+          Architecturally Secure. Built for Decision Makers.
         </div>
         <div className="flex md:flex-row flex-col gap-4  mt-10 md:mt-16">
           <TryButton />
